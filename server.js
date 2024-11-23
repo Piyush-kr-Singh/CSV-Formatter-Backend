@@ -11,6 +11,13 @@ app.use(express.json());
 // Configure multer for file upload
 const upload = multer({ dest: "uploads/" });
 
+
+//
+app.get('/', (req, res) => {
+  res.send("Hello World");  
+})
+
+
 // Endpoint to process CSV
 app.post("/upload", upload.single("file"), (req, res) => {
   const filePath = req.file.path;
